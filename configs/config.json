@@ -1,0 +1,5 @@
+{
+	"theme": "adminator",
+	"default-page" : "dashboard",
+	"rules":["dev","admin"]
+}

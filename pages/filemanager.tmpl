@@ -1,0 +1,25 @@
+<_info>
+	<title>Файловый менеджер</title>
+	<template>default</template>
+	
+	<datajson>
+		{
+			"asd":123
+		}
+	</datajson>
+
+	<dataphp>
+		GLOBAL $DS, $_PDATA;
+		return Array("asd"=>$_PDATA['asd']+1, "cases"=>$DS->list("case"));
+	</dataphp>
+
+</_info>
+
+<_template>
+
+	<div class="bgc-white bd bdrs-3 p-20 mB-20 col-md-12">
+		<h4 class="c-grey-900 mB-20">{{PAGE.title}}</h4>
+		<file-manager></file-manager>
+	</div>
+
+</_template>

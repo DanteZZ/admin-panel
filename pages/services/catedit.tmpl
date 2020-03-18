@@ -1,0 +1,71 @@
+<_info>
+	<title>Редактор категории</title>
+	<template>default</template>
+	
+	<datajson>
+		{
+			"dataset" : {
+				"name":"",
+				"description":"",
+				"menu_hide":false,
+				"icon":"",
+				"image":""
+			},
+
+			"action_update": {
+				"type":"handler",
+				"handler":"ds-update",
+				"data":{
+					"dataset":"$dataset"
+				}
+			},
+			
+			"action_create": [
+				{
+					"type":"handler",
+					"handler":"ds-update",
+					"data":{
+						"dataset":"$dataset",
+						"type":"service_category"
+					}
+				},
+				{
+					"type":"href",
+					"href":"?id={#}"
+				}
+			]
+		}
+	</datajson>
+
+	<dataphp>
+		GLOBAL $DS;
+		$res = Array();
+		if ($_GET['id']) {$res['dataset'] = $DS->get($_GET['id']);};
+		return $res;
+	</dataphp>
+
+</_info>
+
+<_template>
+	<div class="col-md-12"><h4 class="c-grey-900 mB-20">{{PAGE.title}}</h4></div>
+
+	<div class="col-md-3">
+		<div class="bgc-white bd bdrs-3 p-20 mB-20">
+			<h5>Изображение</h5>
+			<form-file-select label="Изображение" type="image" :multiple="false" v-model="dataset.image"></form-file-select>
+		</div>
+	</div>
+	<div class="col-md-9">
+		<div class="bgc-white bd bdrs-3 p-20 mB-20">
+			<h5>Информация</h5>
+			<form-input label="Название" v-model="dataset.name"></form-input>
+			<form-textarea label="Описание" v-model="dataset.description"></form-textarea>
+			<form-input label="Иконка" v-model="dataset.icon"></form-input>
+			<form-checkbox label="Скрыть в главном меню" v-model="dataset.menu_hide"></form-checkbox>
+
+			<action-btn v-if="dataset.id" label="Сохранить" :action="action_update"></action-btn>
+			<action-btn v-else label="Создать" :action="action_create"></action-btn>
+		</div>
+	</div>
+
+</_template>

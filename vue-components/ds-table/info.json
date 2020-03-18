@@ -1,0 +1,9 @@
+{
+	"name":"ds-table",
+	"file":"component.vue",
+	"data": {
+		"text": {
+			"type":"input-text"
+		}
+	}
+}

@@ -1,0 +1,57 @@
+<_info>
+	<title>Список продуктов</title>
+	<template>default</template>
+	
+	<datajson>
+		{
+			"columns": [
+				{
+					"name":"",
+					"key":"image",
+					"type":"image",
+					"style": {
+						"height":"56px",
+						"max-width":"120px",
+						"object-fit":"contain",
+						"margin":"auto",
+						"display":"block"
+					}
+				},
+				{
+					"name":"Название",
+					"key":"name"
+				}
+			],
+			"buttons": [
+				{
+					"view":"text",
+					"title":"Редактировать",
+					"action": "href",
+					"href":"./edit?id={id}"
+				},
+				{
+					"view":"text",
+					"title":"Удалить",
+					"action": "remove"
+				}
+			]
+		}
+	</datajson>
+
+	<dataphp>
+		GLOBAL $DS;
+		$list = $DS->list("partner");
+		return Array("list"=>$list);
+	</dataphp>
+
+</_info>
+
+<_template>
+
+	<div class="bgc-white bd bdrs-3 p-20 mB-20 col-md-12">
+		<h4 class="c-grey-900 mB-20">{{PAGE.title}}</h4>
+		<ds-table :columns="columns" :data="list" :buttons="buttons" create_link="./edit"></ds-table>
+	</div>
+
+</_template>
+

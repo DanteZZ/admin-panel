@@ -1,0 +1,9 @@
+{
+	"name":"form-textarea",
+	"file":"component.vue",
+	"data": {
+		"text": {
+			"type":"input-text"
+		}
+	}
+}

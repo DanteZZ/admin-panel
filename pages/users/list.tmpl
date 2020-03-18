@@ -1,0 +1,74 @@
+<_info>
+	<title>Пользователи</title>
+	<template>default</template>
+	<datajson>
+		{
+			"columns":[
+				{
+					"name":"Аватар",
+					"key":"avatar",
+					"type":"image",
+					"style": {
+						"height":"56px",
+						"width":"56px",
+						"object-fit":"cover",
+						"border-radius":"30px",
+						"margin":"auto",
+						"display":"block"
+					}
+				},
+				{
+					"name":"Имя",
+					"key":"parameters.name"
+				},
+				{
+					"name":"Логин",
+					"key":"username"
+				},
+				{
+					"name":"Приоритет",
+					"key":"priority"
+				}
+			]
+		}
+	</datajson>
+	<dataphp>
+		GLOBAL $USR, $PRIORITY, $panelLink;
+		$res = Array(
+			"list" => $USR->list(),
+			"buttons" => Array(
+				Array(
+					"view"=>"text",
+					"title"=>"Редактировать",
+					"action"=>"href",
+					"href"=>"./edit?username={username}"
+				),
+				Array(
+					"view"=>"text",
+					"title"=>"Удалить",
+					"action"=>"remove_usr"
+				)
+			)
+		);
+
+		if ($res['list']) {
+			foreach ($res['list'] as $key=>$item) {
+				if (!$item['avatar']) {$res['list'][$key]['avatar'] = $panelLink."assets/images/user.png";}
+				$res['list'][$key]['priority'] = $PRIORITY->get($res['list'][$key]['priority'])["name"];
+			};
+		};
+
+		return $res;
+	</dataphp>
+
+</_info>
+
+<_template>
+
+	<div class="bgc-white bd bdrs-3 p-20 mB-20 col-md-12">
+		<h4 class="c-grey-900 mB-20">{{PAGE.title}}</h4>
+		<ds-table :columns="columns" :data="list" :buttons="buttons" create_link="./edit"></ds-table>
+	</div>
+
+</_template>
+

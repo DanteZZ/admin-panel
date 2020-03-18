@@ -1,0 +1,9 @@
+{
+	"name":"form-file-select",
+	"file":"component.vue",
+	"data": {
+		"text": {
+			"type":"input-text"
+		}
+	}
+}

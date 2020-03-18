@@ -1,0 +1,44 @@
+<_info>
+	<title>Список кейсов</title>
+	<template>default</template>
+	
+	<data>
+		<kek>
+			<type>simple</type>
+			<data>Lol Kek Cheburek</data>
+		</kek>
+	</data>
+
+	<datajson>
+		{
+			"text":"asdsd"
+		}
+	</datajson>
+
+	<dataphp>
+		GLOBAL $DS, $DB;
+		
+		$data = Array();
+
+		$data['list'] = $DS->list("case");
+		$data['columns'] = Array(
+			Array("name"=>"Название","key"=>"name"),
+			Array("name"=>"Дата создания","key"=>"create_time")
+		);
+		$data['buttons'] = Array(
+			Array("title"=>"Редактировать","action"=>"href","href"=>"./edit?id={id}"),
+			Array("title"=>"Удалить","action"=>"remove")
+		);
+		$data['text'] = "OHUET";
+		return $data;
+	</dataphp>
+</_info>
+
+<_template>
+	<div class=" parseInt ">
+		<h4 class="c-grey-900 mB-20">{{PAGE.title}}</h4>
+	</div>
+	<div class="bgc-white bd bdrs-3 p-20 mB-20 col-md-12">
+		<ds-table class=" " :data="list" :columns="columns" :buttons="buttons"></ds-table>
+	</div>
+</_template>

@@ -1,0 +1,85 @@
+<_info>
+	<title>Редактор пользователя</title>
+	<template>default</template>
+	<dataphp>
+		GLOBAL $pageVals, $PRIORITY, $USR;
+
+		$res = Array(
+			"user"=>Array(
+				"username"=>"",
+				"parameters"=>Array(
+					"name"=>""
+				),
+				"password"=>"",
+				"priority"=>"",
+				"avatar"=>"",
+				"email"=>""
+			),
+
+			"priorities"=>$PRIORITY->list(),
+
+			"save_action"=>Array(
+				Array(
+					"type"=>"handler",
+					"handler"=>"usr-update",
+					"data"=>Array(
+						"user"=>'$user'
+					)
+				)
+			)
+		);
+
+		if ($_GET['username']) {
+			$res['user'] = $USR->info($_GET['username']);
+		} else {
+			$res['save_action'][] = Array(
+				"type"=>"href",
+				"href"=>"?username={#}"
+			);
+		}
+
+		return $res;
+	</dataphp>
+
+</_info>
+
+<_template>
+	<div class="col-md-12"><h4 class="c-grey-900 mB-20">{{PAGE.title}}<span v-if="user.id" class="name">: {{user.username}}</span></h4></div>
+	<div class="col-md-3">
+		<div class="bgc-white bd bdrs-3 p-20 mB-20">
+			<h4 class="c-grey-900 mB-20">Изображение</h4>
+
+			<form-file-select v-model="user.avatar" :type="'image'" :label="'Аватар'" :multiple="false"></form-file-select>
+
+		</div>
+	</div>
+
+	<div class="col-md-9">
+		<div class="bgc-white bd bdrs-3 p-20 mB-20">
+			<h4 class="c-grey-900 mB-20">Информация</h4>
+
+			<form-input v-if="!user.id" label="Логин" v-model="user.username"></form-input>
+			<div v-else class="form-group">
+				<label>Логин</label>
+				<input type="text" disabled readonly :value="user.username" class="form-control">
+			</div>
+
+			<form-input label="Пароль" type="password" v-model="user.password"></form-input>
+
+			<form-input label="Имя" v-model="user.parameters.name"></form-input>
+
+			<form-input label="E-Mail" v-model="user.email"></form-input>
+
+			<div class="form-group">
+				<label>Приоритет</label>
+				<select v-model="user.priority" class="form-control">
+					<option v-for="prior in priorities" :value="prior.tag">{{prior.name}}</option>
+				</select>
+		    </div>
+			
+			<action-btn label="Сохранить" :action="save_action"></action-btn>
+
+		</div>
+	</div>
+
+</_template>

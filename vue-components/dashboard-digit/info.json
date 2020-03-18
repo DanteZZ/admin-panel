@@ -1,0 +1,9 @@
+{
+	"name":"dashboard-digit",
+	"file":"component.vue",
+	"data": {
+		"text": {
+			"type":"input-text"
+		}
+	}
+}

@@ -1,0 +1,9 @@
+{
+	"name":"form-input",
+	"file":"component.vue",
+	"data": {
+		"text": {
+			"type":"input-text"
+		}
+	}
+}

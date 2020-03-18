@@ -1,0 +1,9 @@
+{
+	"name":"file-manager",
+	"file":"component.vue",
+	"data": {
+		"text": {
+			"type":"input-text"
+		}
+	}
+}

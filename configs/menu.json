@@ -1,0 +1,141 @@
+[
+	
+	{
+		"title":"Перейти на сайт",
+		"link":"/../",
+		"icon":"fa-arrow-left"
+	},
+
+	{
+		"title":"Главная",
+		"link":"/",
+		"icon":"fa-tachometer-alt"
+	},
+
+	{
+		"title":"Файловый менеджер",
+		"link":"/filemanager",
+		"icon":"fa-box"
+	},
+
+	{
+		"title":"Кейсы",
+		"icon":"fa-suitcase",
+		"subs": [
+			{
+				"title":"Список кейсов",
+				"link":"/cases/list"
+			},
+			{
+				"title":"Добавить кейс",
+				"link":"/cases/edit"
+			},
+			{
+				"title":"Теги",
+				"link":"/cases/taglist"
+			}
+		]
+	},
+	{
+		"title":"Продукты",
+		"icon":"fa-shopping-cart",
+		"subs": [
+			{
+				"title":"Список продуктов",
+				"link":"/products/list"
+			},
+			{
+				"title":"Добавить продукт",
+				"link":"/products/edit"
+			}
+		]
+	},
+	{
+		"title":"Тикеты",
+		"icon":"fa-question-circle",
+		"subs": [
+			{
+				"title":"Список тикетов",
+				"link":"/tickets/list"
+			},
+			{
+				"title":"Проекты",
+				"link":"/tickets/projlist"
+			}
+		]
+	},
+	{
+		"title":"Услуги",
+		"icon":"fa-thumbtack",
+		"subs": [
+			{
+				"title":"Список услуг",
+				"link":"/services/list"
+			},
+			{
+				"title":"Добавить услугу",
+				"link":"/services/edit"
+			},
+			{
+				"title":"Категории",
+				"link":"/services/catlist"
+			}
+		]
+	},
+	{
+		"title":"Партнёры",
+		"icon":"fa-handshake",
+		"subs": [
+			{
+				"title":"Список партнёров",
+				"link":"/partners/list"
+			},
+			{
+				"title":"Добавить партнёра",
+				"link":"/partners/edit"
+			}
+		]
+	},
+	{
+		"title":"Контакты",
+		"icon":"fa-address-card",
+		"subs": [
+			{
+				"title":"Соц. сети",
+				"link":"/contacts/soclist"
+			},
+			{
+				"title":"Контактная информация",
+				"link":"/contacts/edit"
+			}
+		]
+	},
+	{
+		"title":"Настройки",
+		"icon":"fa-cog",
+		"subs": [
+			{
+				"title":"SMTP",
+				"link":"/smtp/settings"
+			}
+		]
+	},
+	{
+		"title":"Пользователи",
+		"icon":"fa-users",
+		"subs": [
+			{
+				"title":"Список пользователей",
+				"link":"/users/list"
+			},
+			{
+				"title":"Добавить пользователя",
+				"link":"/users/edit"
+			},
+			{
+				"title":"Приоритеты",
+				"link":"/users/prioritylist"
+			}
+		]
+	}
+]
