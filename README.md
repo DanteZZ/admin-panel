@@ -17,7 +17,9 @@
 Благодаря данной структуре, можно полностью кастомизировать Админ-Панель. Вы можете создать собственные страницы, и уместить необходимые компоненты. Настроить обработку данных, любым из 3 способов: json массив, data-rule, php.
 
 Также вы можете скачать файл синтаксиса для файлов .TMPL разработанный специально для CrossEngine:
-> Sublime-Text: [Скачать](readme/tmpl.sublime-syntax)
+<p align="center">
+  <img src="https://github.com/DanteZZ/admin-panel/blob/master/readme/syntax.png?raw=true" alt="Sublime Syntax TMPL"/>
+</p>
 
 ![Подсветка синтаксиса .TMPL](readme/syntax.png)  
 
