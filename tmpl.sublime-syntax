@@ -1,0 +1,48 @@
+%YAML 1.2
+---
+name: Cross Engine Template (.TMPL)
+file_extensions: [tmpl]
+scope: source.tmpl
+
+contexts:
+  main:
+    - match: ''
+      push: "Packages/XML/XML.sublime-syntax"
+      with_prototype:
+        - match: (?<=<dataphp>)
+          scope: punctuation.section.embedded.begin.php
+          push:
+            - meta_scope: meta.embedded.block.php
+            - meta_content_scope: source.php
+            - include: php-end-tag-pop
+            - include: scope:source.php
+    
+        - match: ( :)([\s\S]+?)(?=\=)
+          scope: "Packages/HTML/HTML.sublime-syntax"
+
+        - match: (?<=<style>)
+          push: Packages/CSS/CSS.sublime-syntax
+          with_prototype:
+          - match: (?=</style>)
+            pop: true
+
+        - match: (?<=<datajson>)
+          push: Packages/JavaScript/JSON.sublime-syntax
+          with_prototype:
+          - match: (?=</datajson>)
+            pop: true
+
+        - match: (?<=<_vue>)
+          push: Packages/JavaScript/JavaScript.sublime-syntax
+          with_prototype:
+          - match: (?=</_vue>)
+            pop: true
+
+
+  
+  php-end-tag-pop:
+    - match: (?=</dataphp>)
+      captures:
+        1: punctuation.section.embedded.end.php
+        2: meta.html-newline-after-php.php
+      pop: true
