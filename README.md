@@ -21,8 +21,6 @@
   <img src="https://github.com/DanteZZ/admin-panel/blob/master/readme/syntax.png?raw=true" alt="Sublime Syntax TMPL"/>
 </p>
 
-![Подсветка синтаксиса .TMPL](readme/syntax.png)  
-
 ## Используемые плагины
   - JQuery
   - Vue.JS
